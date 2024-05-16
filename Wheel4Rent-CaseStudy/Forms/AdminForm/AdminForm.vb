@@ -15,7 +15,7 @@ Public Class AdminForm
             Dim isFirstLine As Boolean = True
             While Not reader.EndOfStream
                 Dim line As String = reader.ReadLine()
-                Dim fields As String() = line.Split(","c)
+                Dim fields As String() = line.Split("~"c)
                 If isFirstLine Then
                     For Each field In fields
                         dt.Columns.Add(New DataColumn(field.Trim(), GetType(String)))
@@ -57,7 +57,7 @@ Public Class AdminForm
             Dim isFirstLine As Boolean = True
             While Not reader.EndOfStream
                 Dim line As String = reader.ReadLine()
-                Dim fields As String() = line.Split(","c)
+                Dim fields As String() = line.Split("~"c)
                 If isFirstLine Then
                     For Each field In fields
                         dt.Columns.Add(New DataColumn(field.Trim(), GetType(String)))
@@ -97,7 +97,7 @@ Public Class AdminForm
             Dim isFirstLine As Boolean = True
             While Not reader.EndOfStream
                 Dim line As String = reader.ReadLine()
-                Dim fields As String() = line.Split(","c)
+                Dim fields As String() = line.Split("~"c)
                 If isFirstLine Then
                     For Each field In fields
                         dt.Columns.Add(New DataColumn(field.Trim(), GetType(String)))
@@ -131,8 +131,8 @@ Public Class AdminForm
         Next
     End Sub
 
-    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        SplashScreen.Dispose()
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        SplashScreen.Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

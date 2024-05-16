@@ -142,43 +142,43 @@
 
 
 
-    'Restric ","
-    Private Sub txtb_Name_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Name.KeyPress
-        If e.KeyChar = "," Then
-            e.Handled = True
-        End If
-    End Sub
+    ''Restric ","
+    'Private Sub txtb_Name_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Name.KeyPress
+    '    If e.KeyChar = "," Then
+    '        e.Handled = True
+    '    End If
+    'End Sub
 
-    Private Sub txtb_Address_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Address.KeyPress
-        If e.KeyChar = "," Then
-            e.Handled = True
-        End If
-    End Sub
-    Private Sub txtb_Username_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Username.KeyPress
-        If e.KeyChar = "," Then
-            e.Handled = True
-        End If
-    End Sub
+    'Private Sub txtb_Address_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Address.KeyPress
+    '    If e.KeyChar = "," Then
+    '        e.Handled = True
+    '    End If
+    'End Sub
+    'Private Sub txtb_Username_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Username.KeyPress
+    '    If e.KeyChar = "," Then
+    '        e.Handled = True
+    '    End If
+    'End Sub
 
-    Private Sub txtb_Password_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Password.KeyPress
-        If e.KeyChar = "," Then
-            e.Handled = True
-        End If
-    End Sub
+    'Private Sub txtb_Password_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Password.KeyPress
+    '    If e.KeyChar = "," Then
+    '        e.Handled = True
+    '    End If
+    'End Sub
 
-    Private Sub txtb_ConfPassword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_ConfPassword.KeyPress
-        If e.KeyChar = "," Then
-            e.Handled = True
-        End If
-    End Sub
+    'Private Sub txtb_ConfPassword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_ConfPassword.KeyPress
+    '    If e.KeyChar = "," Then
+    '        e.Handled = True
+    '    End If
+    'End Sub
 
-    Private Sub txtb_Email_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Email.KeyPress
-        If e.KeyChar = "," Then
-            e.Handled = True
-        End If
-    End Sub
+    'Private Sub txtb_Email_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtb_Email.KeyPress
+    '    If e.KeyChar = "," Then
+    '        e.Handled = True
+    '    End If
+    'End Sub
 
-    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         SplashScreen.Dispose()
     End Sub
 
