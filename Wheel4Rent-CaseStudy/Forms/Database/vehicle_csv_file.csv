@@ -1,0 +1,5 @@
+CarID~ModelName~PlateNumber~Color~Type~Capacity~BodyNumber~IsAvailable~DailyPrice~PosterPath~Description
+CAR0001~Mazda3~BKL 726~Gray~Sedan~5~CAR0001~True~1000~mazda3.png~A compact car with a sleek design and engaging driver experience. It’s interior provides a comfortable and well-crafted cabin with modern technology features like advanced driver assistance systems and premium audio options.
+CAR0002~Toyota Corolla~FHW 892~Black~Sedan~5~CAR0002~True~1200~toyota_corolla.png~description
+CAR0003~Honda CR-V~LPM 431~Metallic Silver~SUV~7~CAR0003~True~3000~honda_crv.png~description
+CAR0006~Mercedes-Benz~GXY 849~Dark Gray~Luxury Sedan~5~CAR0006~True~13000~mercedez_benz.png~description
