@@ -33,7 +33,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Wheel4Rent_CaseStudy.SplashScreen
+            Me.MainForm = Global.Wheel4Rent_CaseStudy.SplashScreenV2
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _

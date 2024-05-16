@@ -124,10 +124,13 @@
   <data name="320x240" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Placeholder\320x240.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bin original1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bin original.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Hero BG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\Placeholder\Hero BG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bin original1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bin original.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Your paragraph text" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Your paragraph text.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
