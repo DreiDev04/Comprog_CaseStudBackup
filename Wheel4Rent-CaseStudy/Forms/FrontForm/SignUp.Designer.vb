@@ -227,7 +227,7 @@ Partial Class SignUp
         lbl_LnFnMi.Name = "lbl_LnFnMi"
         lbl_LnFnMi.Size = New Size(178, 14)
         lbl_LnFnMi.TabIndex = 4
-        lbl_LnFnMi.Text = "First Name/ Last Name"
+        lbl_LnFnMi.Text = "Last Name, First Name, MI."
         ' 
         ' lbl_Address
         ' 

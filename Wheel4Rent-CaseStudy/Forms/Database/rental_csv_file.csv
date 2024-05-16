@@ -1,1 +1,2 @@
-UID~Card ID~Start Date~Return Date~IsReturuned~IsOverdue~Total Price
+UID~Order ID~Card ID~Start Date~Return Date~IsReturuned~IsOverdue~Total Price
+7a53acc1-ad09-4459-b44c-1be051956e3f~NNvJ8wZc~CAR0003~01/05/2024 1:26:20 am~09/05/2024 1:26:20 am~False~True~3000.0000067256947

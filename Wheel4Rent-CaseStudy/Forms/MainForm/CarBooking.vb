@@ -33,7 +33,7 @@ Public Class CarBooking
             pb_carPoster.Image = Image.FromFile(posterPath)
         End If
 
-        Dim daysLeft As Integer = DateDiff(DateInterval.Day, Date.Now, _returnDate) + 1
+        Dim daysLeft As Integer = DateDiff(DateInterval.Day, Date.Now, _returnDate)
 
 
         If daysLeft = 0 Then

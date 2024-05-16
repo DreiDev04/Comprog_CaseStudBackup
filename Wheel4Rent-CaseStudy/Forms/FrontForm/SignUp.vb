@@ -75,7 +75,8 @@
         txtb_Password.Clear()
         txtb_ConfPassword.Clear()
         txtb_Email.Clear()
-        Me.Hide()
+        Me.Dispose()
+        LogIn.Show()
     End Sub
 
     Private Sub dtp_Birthday_ValueChanged(sender As Object, e As EventArgs) Handles dtp_Birthday.ValueChanged

@@ -27,12 +27,12 @@ Public Class Database
         If Not File.Exists(_RENTAL_CSV_FILE) Then
 
             Using writer As New StreamWriter(_RENTAL_CSV_FILE)
-                writer.WriteLine("UID~Card ID~Start Date~Return Date~IsReturuned~IsOverdue~Total Price")
+                writer.WriteLine("UID~Order ID~Card ID~Start Date~Return Date~IsReturuned~IsOverdue~Total Price")
             End Using
         End If
 
         Using writer As New StreamWriter(_RENTAL_CSV_FILE, True)
-            writer.WriteLine($"{rental.UID}~{rental.CarID}~{rental.StartDate}~{rental.ReturnDate}~{rental.IsReturned}~{rental.IsOverdue}~{rental.TotalPrice}")
+            writer.WriteLine($"{rental.UID}~{rental.OrderID}~{rental.CarID}~{rental.StartDate}~{rental.ReturnDate}~{rental.IsReturned}~{rental.IsOverdue}~{rental.TotalPrice}")
         End Using
     End Sub
 
@@ -48,7 +48,7 @@ Public Class Database
                     Continue While
                 End If
                 Dim fields As String() = line.Split("~")
-                Dim booking As New RentalTemplate(fields(0), fields(1), Date.Parse(fields(2)), Date.Parse(fields(3)), Boolean.Parse(fields(4)), Boolean.Parse(fields(5)), Double.Parse(fields(6)))
+                Dim booking As New RentalTemplate(fields(0), (fields(1)), fields(2), Date.Parse(fields(3)), Date.Parse(fields(4)), Boolean.Parse(fields(5)), Boolean.Parse(fields(6)), Double.Parse(fields(7)))
 
                 bookingList.Add(booking)
             End While
@@ -184,6 +184,13 @@ Public Class Database
         Next
         Return True
     End Function
+    Public Function GetUserCredit(UID As String)
+        Dim user As UserTemplate = GetSpecificUser(UID)
+        If user Is Nothing Then
+            Return 0
+        End If
+        Return user.Credits
+    End Function
     Public Function SubtractCreditToUser(UID As String, credit As Double)
         Dim user As UserTemplate = GetSpecificUser(UID)
         If user Is Nothing Then
@@ -200,6 +207,23 @@ Public Class Database
         Return True
 
     End Function
+
+    Public Sub UpdateOverdue(UID As String, orderID As String)
+        Dim rentals As List(Of RentalTemplate) = GetBokkingToDB()
+        Dim rentalIndex As Integer = rentals.FindIndex(Function(r) r.UID = UID AndAlso r.OrderID = orderID)
+        If rentalIndex <> -1 Then
+            rentals(rentalIndex).IsOverdue = True
+
+            ' Rewrite the entire list of rentals to the file
+            File.Delete(_RENTAL_CSV_FILE)
+            For Each r As RentalTemplate In rentals
+                AddBooking(r)
+            Next
+        Else
+            MsgBox("Rental with UID " & UID & " and orderID " & orderID & " not found.")
+        End If
+    End Sub
+
     Public ReadOnly Property get_Directory As String
         Get
             Return _Directory
