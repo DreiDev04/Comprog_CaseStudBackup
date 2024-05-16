@@ -103,7 +103,8 @@
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        SplashScreen.Dispose()
+        SplashScreenV2.Close()
+        Application.Exit()
     End Sub
 
 End Class

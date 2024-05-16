@@ -132,7 +132,8 @@ Public Class AdminForm
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        SplashScreen.Close()
+        SplashScreenV2.Close()
+        Application.Exit()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

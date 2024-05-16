@@ -149,7 +149,7 @@ Partial Class LogIn
         txtb_password.PasswordChar = "*"c
         txtb_password.PlaceholderText = "Password"
         txtb_password.Size = New Size(280, 29)
-        txtb_password.TabIndex = 11
+        txtb_password.TabIndex = 2
         txtb_password.Text = "a"
         ' 
         ' Label1
@@ -187,7 +187,7 @@ Partial Class LogIn
         txtb_userName.Name = "txtb_userName"
         txtb_userName.PlaceholderText = "Username"
         txtb_userName.Size = New Size(280, 29)
-        txtb_userName.TabIndex = 10
+        txtb_userName.TabIndex = 1
         txtb_userName.Text = "a"
         ' 
         ' lnklbl_admin
@@ -229,7 +229,7 @@ Partial Class LogIn
         btn_login.Location = New Point(56, 3)
         btn_login.Name = "btn_login"
         btn_login.Size = New Size(244, 56)
-        btn_login.TabIndex = 12
+        btn_login.TabIndex = 4
         btn_login.Text = "Login"
         btn_login.UseVisualStyleBackColor = False
         ' 
@@ -258,7 +258,7 @@ Partial Class LogIn
         btn_register.Location = New Point(56, 3)
         btn_register.Name = "btn_register"
         btn_register.Size = New Size(244, 58)
-        btn_register.TabIndex = 13
+        btn_register.TabIndex = 3
         btn_register.Text = "Register Now"
         btn_register.UseVisualStyleBackColor = False
         ' 

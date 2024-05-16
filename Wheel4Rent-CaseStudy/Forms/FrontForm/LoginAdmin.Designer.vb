@@ -72,7 +72,7 @@ Partial Class LoginAdmin
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 80F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 10F))
         TableLayoutPanel1.Size = New Size(464, 681)
-        TableLayoutPanel1.TabIndex = 1
+        TableLayoutPanel1.TabIndex = 0
         ' 
         ' Panel1
         ' 
@@ -128,7 +128,7 @@ Partial Class LoginAdmin
         TableLayoutPanel7.RowCount = 1
         TableLayoutPanel7.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
         TableLayoutPanel7.Size = New Size(358, 64)
-        TableLayoutPanel7.TabIndex = 0
+        TableLayoutPanel7.TabIndex = 999
         ' 
         ' btn_login
         ' 
@@ -140,7 +140,7 @@ Partial Class LoginAdmin
         btn_login.Location = New Point(56, 3)
         btn_login.Name = "btn_login"
         btn_login.Size = New Size(244, 58)
-        btn_login.TabIndex = 12
+        btn_login.TabIndex = 3
         btn_login.Text = "Login"
         btn_login.UseVisualStyleBackColor = False
         ' 
@@ -157,7 +157,7 @@ Partial Class LoginAdmin
         TableLayoutPanel5.RowCount = 1
         TableLayoutPanel5.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
         TableLayoutPanel5.Size = New Size(358, 48)
-        TableLayoutPanel5.TabIndex = 0
+        TableLayoutPanel5.TabIndex = 999
         ' 
         ' txtb_password
         ' 
@@ -168,7 +168,8 @@ Partial Class LoginAdmin
         txtb_password.PasswordChar = "*"c
         txtb_password.PlaceholderText = "Password"
         txtb_password.Size = New Size(280, 29)
-        txtb_password.TabIndex = 11
+        txtb_password.TabIndex = 2
+        txtb_password.Text = "admin"
         ' 
         ' Label1
         ' 
@@ -196,7 +197,7 @@ Partial Class LoginAdmin
         TableLayoutPanel3.RowCount = 1
         TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 100F))
         TableLayoutPanel3.Size = New Size(358, 43)
-        TableLayoutPanel3.TabIndex = 0
+        TableLayoutPanel3.TabIndex = 999
         ' 
         ' txtb_userName
         ' 
@@ -205,7 +206,8 @@ Partial Class LoginAdmin
         txtb_userName.Name = "txtb_userName"
         txtb_userName.PlaceholderText = "Username"
         txtb_userName.Size = New Size(280, 29)
-        txtb_userName.TabIndex = 10
+        txtb_userName.TabIndex = 1
+        txtb_userName.Text = "admin"
         ' 
         ' lnklbl_admin
         ' 
@@ -216,7 +218,7 @@ Partial Class LoginAdmin
         lnklbl_admin.Location = New Point(3, 466)
         lnklbl_admin.Name = "lnklbl_admin"
         lnklbl_admin.Size = New Size(358, 20)
-        lnklbl_admin.TabIndex = 14
+        lnklbl_admin.TabIndex = 4
         lnklbl_admin.TabStop = True
         lnklbl_admin.Text = "Go back to Login"
         lnklbl_admin.TextAlign = ContentAlignment.MiddleCenter

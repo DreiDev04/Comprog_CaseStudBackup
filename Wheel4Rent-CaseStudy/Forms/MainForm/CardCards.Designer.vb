@@ -34,6 +34,7 @@ Partial Class CardCards
         lbl_carColor = New Label()
         Label2 = New Label()
         PictureBox2 = New PictureBox()
+        lbl_Premium = New Label()
         CType(pb_carPoster, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
@@ -143,9 +144,9 @@ Partial Class CardCards
         lbl_carPrice.BackColor = Color.Transparent
         lbl_carPrice.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lbl_carPrice.ForeColor = Color.Maroon
-        lbl_carPrice.Location = New Point(16, 253)
+        lbl_carPrice.Location = New Point(88, 253)
         lbl_carPrice.Name = "lbl_carPrice"
-        lbl_carPrice.Size = New Size(205, 24)
+        lbl_carPrice.Size = New Size(133, 24)
         lbl_carPrice.TabIndex = 64
         lbl_carPrice.Text = "<Price>"
         lbl_carPrice.TextAlign = ContentAlignment.MiddleRight
@@ -184,11 +185,25 @@ Partial Class CardCards
         PictureBox2.TabIndex = 39
         PictureBox2.TabStop = False
         ' 
+        ' lbl_Premium
+        ' 
+        lbl_Premium.BackColor = Color.Maroon
+        lbl_Premium.Font = New Font("Berlin Sans FB", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lbl_Premium.ForeColor = SystemColors.ButtonHighlight
+        lbl_Premium.Location = New Point(10, 4)
+        lbl_Premium.Name = "lbl_Premium"
+        lbl_Premium.Size = New Size(211, 28)
+        lbl_Premium.TabIndex = 67
+        lbl_Premium.Text = "| PREMIUM"
+        lbl_Premium.TextAlign = ContentAlignment.MiddleLeft
+        lbl_Premium.Visible = False
+        ' 
         ' CardCards
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        Controls.Add(lbl_Premium)
         Controls.Add(Label2)
         Controls.Add(lbl_carColor)
         Controls.Add(lbl_carPrice)
@@ -222,5 +237,6 @@ Partial Class CardCards
     Friend WithEvents lbl_carColor As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents lbl_Premium As Label
 
 End Class

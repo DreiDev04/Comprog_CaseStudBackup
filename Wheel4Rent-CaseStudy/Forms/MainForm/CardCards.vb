@@ -20,6 +20,10 @@ Public Class CardCards
             lbl_available.Text = "Not Available"
             lbl_available.ForeColor = ColorTranslator.FromHtml("#7D0000")
         End If
+        If car.DailyPrice >= 10000 Then
+            lbl_Premium.Visible = True
+        End If
+
         lbl_carModel.Text = car.ModelName
         lbl_carType.Text = car.Type
         lbl_carCapacity.Text = car.Capacity.ToString()
