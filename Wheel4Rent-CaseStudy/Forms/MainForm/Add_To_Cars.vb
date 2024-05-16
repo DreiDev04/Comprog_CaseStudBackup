@@ -6,6 +6,7 @@ Public Class Add_to_Cars
 
     Dim _car As VehicleDetails
     Dim _session As UserSession
+    Dim _orderID As String
 
     Dim _startDate As DateTime
     Dim _returnDate As DateTime
@@ -17,6 +18,7 @@ Public Class Add_to_Cars
 
     Public Sub New(car As VehicleDetails, session As UserSession, startDate As DateTime, rutrnDate As DateTime, costumerBookingForm As CostumerBooking)
         InitializeComponent()
+        OrderIDMaker()
 
         _car = car
         _session = session
@@ -70,7 +72,7 @@ Public Class Add_to_Cars
             End If
             rm.ProcessPayment(_session, totalPrice, _costumerBookingForm)
 
-            db.AddBooking(New RentalTemplate(_session.UID, _car.CarID, _startDate, _returnDate, False, False, totalPrice))
+            db.AddBooking(New RentalTemplate(_session.UID, _orderID, _car.CarID, _startDate, _returnDate, False, False, totalPrice))
 
             MessageBox.Show("Payment accepted", "Accepted", MessageBoxButtons.OK, MessageBoxIcon.Information)
             _costumerBookingForm.flp_billing.Controls.Remove(Me)
@@ -82,4 +84,16 @@ Public Class Add_to_Cars
         End If
     End Sub
 
+
+    Public Sub OrderIDMaker()
+        Dim chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        Dim stringChars = New Char(7) {}
+        Dim random = New Random()
+
+        For i As Integer = 0 To stringChars.Length - 1
+            stringChars(i) = chars(random.[Next](chars.Length))
+        Next
+
+        _orderID = New [String](stringChars)
+    End Sub
 End Class

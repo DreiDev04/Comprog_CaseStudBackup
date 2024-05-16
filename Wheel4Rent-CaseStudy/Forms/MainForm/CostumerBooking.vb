@@ -17,7 +17,13 @@ Public Class CostumerBooking
 
     Private Sub CostumerBooking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SetupControls()
+
+        ValidateOverDue()
+
+
         LoadCars()
+
+
         FetchRentals()
         _currentUser = db.GetSpecificUser(_userSession.UID)
         UpdateAccountInfo(_currentUser)
@@ -57,6 +63,20 @@ Public Class CostumerBooking
         lbl_accountName.Text = user.Username
         lbl_accCreds.Text = user.Credits.ToString("C2", New CultureInfo("en-PH"))
     End Sub
+
+    Private Sub ValidateOverDue()
+        Dim Rentals As List(Of RentalTemplate) = db.GetBokkingToDB()
+        For Each rent As RentalTemplate In Rentals
+            If (rent.UID = _userSession.UID) Then
+                If (rent.ReturnDate < Date.Now) Then
+                    db.UpdateOverdue(_userSession.UID, rent.OrderID)
+                    MessageBox.Show("You have an overdue booking. Please pay the overdue fee to Wheels4Rent main branch before renting.", "Overdue Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            End If
+        Next
+
+    End Sub
+
 
     Private Sub lbl_navLogoTitle1_Click(sender As Object, e As EventArgs) Handles lbl_navLogoTitle1.Click
         tabCtrl_body.SelectedTab = tabCtrl_body.TabPages(0)

@@ -1,6 +1,7 @@
 ﻿Public Class RentalTemplate
 
     Private _UID As String
+    Private _orderID As String
     Private _carID As String
     Private _startDate As Date
     Private _returnDate As Date
@@ -9,8 +10,9 @@
     Private _isReturned As Boolean
 
 
-    Public Sub New(UID As String, carID As String, startDate As Date, returnDate As Date, isReturned As Boolean, isOverdue As Boolean, totalPrice As Double)
+    Public Sub New(UID As String, orderId As String, carID As String, startDate As Date, returnDate As Date, isReturned As Boolean, isOverdue As Boolean, totalPrice As Double)
         _UID = UID
+        _orderID = orderId
         _carID = carID
         _startDate = startDate
         _returnDate = returnDate
@@ -25,6 +27,14 @@
         End Get
         Set(value As String)
             _UID = value
+        End Set
+    End Property
+    Public Property OrderID As String
+        Get
+            Return _orderID
+        End Get
+        Set(value As String)
+            _orderID = value
         End Set
     End Property
 
