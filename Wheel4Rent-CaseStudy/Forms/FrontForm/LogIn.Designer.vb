@@ -150,7 +150,7 @@ Partial Class LogIn
         txtb_password.PlaceholderText = "Password"
         txtb_password.Size = New Size(280, 29)
         txtb_password.TabIndex = 2
-        txtb_password.Text = "a"
+        txtb_password.Text = "Password123!"
         ' 
         ' Label1
         ' 
@@ -188,7 +188,7 @@ Partial Class LogIn
         txtb_userName.PlaceholderText = "Username"
         txtb_userName.Size = New Size(280, 29)
         txtb_userName.TabIndex = 1
-        txtb_userName.Text = "a"
+        txtb_userName.Text = "Dreiii"
         ' 
         ' lnklbl_admin
         ' 

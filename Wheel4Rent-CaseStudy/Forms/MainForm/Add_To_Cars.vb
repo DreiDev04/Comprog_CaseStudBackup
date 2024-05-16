@@ -64,11 +64,13 @@ Public Class Add_to_Cars
         Dim result As DialogResult = MessageBox.Show(confirmationMessage, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If result = DialogResult.Yes Then
-
+            If db.GetUserCredit(_session.UID) < totalPrice Then
+                MessageBox.Show("Insufficient funds. Please add credits to your account.", "Insufficient Funds", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
             rm.ProcessPayment(_session, totalPrice, _costumerBookingForm)
 
             db.AddBooking(New RentalTemplate(_session.UID, _car.CarID, _startDate, _returnDate, False, False, totalPrice))
-
 
             MessageBox.Show("Payment accepted", "Accepted", MessageBoxButtons.OK, MessageBoxIcon.Information)
             _costumerBookingForm.flp_billing.Controls.Remove(Me)

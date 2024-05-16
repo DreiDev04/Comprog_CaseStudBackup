@@ -184,6 +184,13 @@ Public Class Database
         Next
         Return True
     End Function
+    Public Function GetUserCredit(UID As String)
+        Dim user As UserTemplate = GetSpecificUser(UID)
+        If user Is Nothing Then
+            Return 0
+        End If
+        Return user.Credits
+    End Function
     Public Function SubtractCreditToUser(UID As String, credit As Double)
         Dim user As UserTemplate = GetSpecificUser(UID)
         If user Is Nothing Then
