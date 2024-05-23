@@ -68,7 +68,7 @@ Partial Class SignUp
         ' 
         ' tlp_SignUpBorder
         ' 
-        tlp_SignUpBorder.BackColor = Color.FromArgb(125, 0, 0)
+        tlp_SignUpBorder.BackColor = Color.FromArgb(CByte(125), CByte(0), CByte(0))
         tlp_SignUpBorder.ColumnCount = 3
         tlp_SignUpBorder.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10F))
         tlp_SignUpBorder.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 80F))
@@ -90,7 +90,7 @@ Partial Class SignUp
         ' 
         ' Panel4
         ' 
-        Panel4.BackColor = Color.FromArgb(179, 0, 0)
+        Panel4.BackColor = Color.FromArgb(CByte(179), CByte(0), CByte(0))
         Panel4.Location = New Point(633, 396)
         Panel4.Margin = New Padding(0)
         Panel4.Name = "Panel4"
@@ -99,7 +99,7 @@ Partial Class SignUp
         ' 
         ' Panel1
         ' 
-        Panel1.BackColor = Color.FromArgb(199, 199, 199)
+        Panel1.BackColor = Color.FromArgb(CByte(199), CByte(199), CByte(199))
         Panel1.Controls.Add(tlp_Main)
         Panel1.Dock = DockStyle.Fill
         Panel1.Location = New Point(73, 47)
@@ -109,7 +109,7 @@ Partial Class SignUp
         ' 
         ' tlp_Main
         ' 
-        tlp_Main.BackColor = Color.FromArgb(28, 28, 30)
+        tlp_Main.BackColor = Color.FromArgb(CByte(28), CByte(28), CByte(30))
         tlp_Main.ColumnCount = 3
         tlp_Main.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
         tlp_Main.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.3333321F))
@@ -168,7 +168,7 @@ Partial Class SignUp
         lbl_GettingStart.AutoSize = True
         lbl_GettingStart.Dock = DockStyle.Fill
         lbl_GettingStart.Font = New Font("Corbel", 18F, FontStyle.Bold)
-        lbl_GettingStart.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_GettingStart.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_GettingStart.Location = New Point(18, 10)
         lbl_GettingStart.Name = "lbl_GettingStart"
         lbl_GettingStart.Size = New Size(172, 32)
@@ -180,7 +180,7 @@ Partial Class SignUp
         lbl_Name.AutoSize = True
         lbl_Name.Dock = DockStyle.Fill
         lbl_Name.Font = New Font("Cambria", 11.25F)
-        lbl_Name.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_Name.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_Name.Location = New Point(18, 53)
         lbl_Name.Name = "lbl_Name"
         lbl_Name.Size = New Size(172, 20)
@@ -193,7 +193,7 @@ Partial Class SignUp
         lbl_Age.AutoSize = True
         lbl_Age.Dock = DockStyle.Fill
         lbl_Age.Font = New Font("Cambria", 11.25F)
-        lbl_Age.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_Age.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_Age.Location = New Point(196, 53)
         lbl_Age.Name = "lbl_Age"
         lbl_Age.Size = New Size(172, 20)
@@ -206,7 +206,7 @@ Partial Class SignUp
         lbl_Birthday.AutoSize = True
         lbl_Birthday.Dock = DockStyle.Fill
         lbl_Birthday.Font = New Font("Cambria", 11.25F)
-        lbl_Birthday.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_Birthday.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_Birthday.Location = New Point(374, 53)
         lbl_Birthday.Name = "lbl_Birthday"
         lbl_Birthday.Size = New Size(172, 20)
@@ -219,8 +219,8 @@ Partial Class SignUp
         lbl_LnFnMi.AutoSize = True
         lbl_LnFnMi.BackColor = Color.Transparent
         lbl_LnFnMi.Dock = DockStyle.Top
-        lbl_LnFnMi.Font = New Font("Franklin Gothic Medium", 7.5F, FontStyle.Italic, GraphicsUnit.Point, 0)
-        lbl_LnFnMi.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_LnFnMi.Font = New Font("Franklin Gothic Medium", 7.5F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        lbl_LnFnMi.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_LnFnMi.ImageAlign = ContentAlignment.MiddleLeft
         lbl_LnFnMi.Location = New Point(15, 98)
         lbl_LnFnMi.Margin = New Padding(0, 5, 0, 0)
@@ -234,7 +234,7 @@ Partial Class SignUp
         lbl_Address.AutoSize = True
         lbl_Address.Dock = DockStyle.Fill
         lbl_Address.Font = New Font("Cambria", 11.25F)
-        lbl_Address.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_Address.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_Address.Location = New Point(18, 113)
         lbl_Address.Name = "lbl_Address"
         lbl_Address.Size = New Size(172, 20)
@@ -247,7 +247,7 @@ Partial Class SignUp
         lbl_Sex.AutoSize = True
         lbl_Sex.Dock = DockStyle.Fill
         lbl_Sex.Font = New Font("Cambria", 11.25F)
-        lbl_Sex.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_Sex.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_Sex.Location = New Point(196, 113)
         lbl_Sex.Name = "lbl_Sex"
         lbl_Sex.Size = New Size(172, 20)
@@ -260,7 +260,7 @@ Partial Class SignUp
         lbl_Username.AutoSize = True
         lbl_Username.Dock = DockStyle.Fill
         lbl_Username.Font = New Font("Cambria", 11.25F)
-        lbl_Username.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_Username.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_Username.Location = New Point(18, 169)
         lbl_Username.Name = "lbl_Username"
         lbl_Username.Size = New Size(172, 20)
@@ -273,7 +273,7 @@ Partial Class SignUp
         lbl_Email.AutoSize = True
         lbl_Email.Dock = DockStyle.Fill
         lbl_Email.Font = New Font("Cambria", 11.25F)
-        lbl_Email.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_Email.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_Email.Location = New Point(18, 228)
         lbl_Email.Name = "lbl_Email"
         lbl_Email.Size = New Size(172, 17)
@@ -286,7 +286,7 @@ Partial Class SignUp
         lbl_Password.AutoSize = True
         lbl_Password.Dock = DockStyle.Fill
         lbl_Password.Font = New Font("Cambria", 11.25F)
-        lbl_Password.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_Password.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_Password.Location = New Point(196, 169)
         lbl_Password.Name = "lbl_Password"
         lbl_Password.Size = New Size(172, 20)
@@ -299,7 +299,7 @@ Partial Class SignUp
         lbl_ConfPassword.AutoSize = True
         lbl_ConfPassword.Dock = DockStyle.Fill
         lbl_ConfPassword.Font = New Font("Cambria", 11.25F)
-        lbl_ConfPassword.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_ConfPassword.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_ConfPassword.Location = New Point(374, 169)
         lbl_ConfPassword.Name = "lbl_ConfPassword"
         lbl_ConfPassword.Size = New Size(172, 20)
@@ -340,7 +340,7 @@ Partial Class SignUp
         ' 
         rbtn_Male.AutoSize = True
         rbtn_Male.Font = New Font("Cascadia Mono", 9F)
-        rbtn_Male.ForeColor = Color.FromArgb(242, 242, 247)
+        rbtn_Male.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         rbtn_Male.Location = New Point(3, 3)
         rbtn_Male.Name = "rbtn_Male"
         rbtn_Male.Size = New Size(53, 20)
@@ -353,7 +353,7 @@ Partial Class SignUp
         ' 
         rbtn_Female.AutoSize = True
         rbtn_Female.Font = New Font("Cascadia Mono", 9F)
-        rbtn_Female.ForeColor = Color.FromArgb(242, 242, 247)
+        rbtn_Female.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         rbtn_Female.Location = New Point(62, 3)
         rbtn_Female.Name = "rbtn_Female"
         rbtn_Female.Size = New Size(67, 20)
@@ -423,15 +423,15 @@ Partial Class SignUp
         ' 
         ' btn_Confirm
         ' 
-        btn_Confirm.BackColor = Color.FromArgb(242, 242, 247)
+        btn_Confirm.BackColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         btn_Confirm.Dock = DockStyle.Fill
-        btn_Confirm.FlatAppearance.BorderColor = Color.FromArgb(125, 0, 0)
+        btn_Confirm.FlatAppearance.BorderColor = Color.FromArgb(CByte(125), CByte(0), CByte(0))
         btn_Confirm.FlatAppearance.BorderSize = 2
         btn_Confirm.FlatAppearance.MouseDownBackColor = Color.Transparent
         btn_Confirm.FlatAppearance.MouseOverBackColor = Color.Transparent
         btn_Confirm.FlatStyle = FlatStyle.Flat
-        btn_Confirm.Font = New Font("Cascadia Mono SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0)
-        btn_Confirm.ForeColor = Color.FromArgb(125, 0, 0)
+        btn_Confirm.Font = New Font("Cascadia Mono SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btn_Confirm.ForeColor = Color.FromArgb(CByte(125), CByte(0), CByte(0))
         btn_Confirm.Location = New Point(374, 290)
         btn_Confirm.Name = "btn_Confirm"
         btn_Confirm.Size = New Size(172, 38)
@@ -454,7 +454,7 @@ Partial Class SignUp
         ' 
         lbl_AlreadyHave.AutoSize = True
         lbl_AlreadyHave.Font = New Font("Franklin Gothic Medium", 6.75F)
-        lbl_AlreadyHave.ForeColor = Color.FromArgb(242, 242, 247)
+        lbl_AlreadyHave.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
         lbl_AlreadyHave.Location = New Point(3, 0)
         lbl_AlreadyHave.Name = "lbl_AlreadyHave"
         lbl_AlreadyHave.Size = New Size(105, 12)
@@ -483,7 +483,7 @@ Partial Class SignUp
         ' 
         ' Panel2
         ' 
-        Panel2.BackColor = Color.FromArgb(179, 0, 0)
+        Panel2.BackColor = Color.FromArgb(CByte(179), CByte(0), CByte(0))
         Panel2.Dock = DockStyle.Left
         Panel2.Location = New Point(633, 64)
         Panel2.Margin = New Padding(0, 20, 3, 3)
@@ -493,7 +493,7 @@ Partial Class SignUp
         ' 
         ' Panel3
         ' 
-        Panel3.BackColor = Color.FromArgb(179, 0, 0)
+        Panel3.BackColor = Color.FromArgb(CByte(179), CByte(0), CByte(0))
         Panel3.Dock = DockStyle.Top
         Panel3.Location = New Point(90, 396)
         Panel3.Margin = New Padding(20, 0, 3, 3)

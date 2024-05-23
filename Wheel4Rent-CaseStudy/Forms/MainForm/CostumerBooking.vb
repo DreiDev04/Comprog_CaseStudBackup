@@ -21,7 +21,9 @@ Public Class CostumerBooking
         ValidateOverDue()
 
 
-        LoadCars()
+
+        LoadCars(_userSession.UID)
+        lbl_currRecord.Text = GoodRecordPrint(_userSession.UID)
 
 
         FetchRentals()
@@ -30,6 +32,19 @@ Public Class CostumerBooking
         lbl_heroTitle.Parent = pb_image
         lbl_subHero.Parent = pb_image
     End Sub
+
+    Function GoodRecordPrint(UID As String)
+        Dim user As UserTemplate = db.GetSpecificUser(UID)
+        If user Is Nothing Then
+            MsgBox("User with UID " & UID & " not found.")
+            Exit Function
+        End If
+        If user.IsGoodRecord = True Then
+            Return "Record: Good"
+        Else
+            Return "Record: Bad"
+        End If
+    End Function
 
     Private Sub SetupControls()
         For Each ctrl As Control In tblLayout_body.Controls
@@ -40,12 +55,34 @@ Public Class CostumerBooking
         tabCtrl_body.SizeMode = TabSizeMode.Fixed
     End Sub
 
-    Private Sub LoadCars()
+    Private Sub LoadCars(UID As String)
+        flp_rentCarsMain.Controls.Clear()
+
+        Dim user As UserTemplate = db.GetSpecificUser(UID)
         Dim cars As List(Of VehicleDetails) = db.GetCars()
-        For Each car As VehicleDetails In cars
-            Dim pnl As New CardCards(car, _userSession, Me)
-            flp_rentCarsMain.Controls.Add(pnl)
-        Next
+
+        If user Is Nothing Then
+            MsgBox("User with UID " & UID & " not found.")
+            Exit Sub
+        End If
+
+        If user.IsGoodRecord = False Then
+            For Each car As VehicleDetails In cars
+                Dim pnl As New CardCards(car, _userSession, Me)
+                pnl.btnRentNow.Enabled = False
+                flp_rentCarsMain.Controls.Add(pnl)
+            Next
+        Else
+            For Each car As VehicleDetails In cars
+                Dim pnl As New CardCards(car, _userSession, Me)
+                flp_rentCarsMain.Controls.Add(pnl)
+            Next
+        End If
+
+        'For Each car As VehicleDetails In cars
+        '    Dim pnl As New CardCards(car, _userSession, Me)
+        '    flp_rentCarsMain.Controls.Add(pnl)
+        'Next
     End Sub
 
     Private Sub FetchRentals()
@@ -71,6 +108,7 @@ Public Class CostumerBooking
                 If (rent.ReturnDate < Date.Now) Then
                     db.UpdateOverdue(_userSession.UID, rent.OrderID)
                     MessageBox.Show("You have an overdue booking. Please pay the overdue fee to Wheels4Rent main branch before renting.", "Overdue Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    db.ValidateGoodRecord(_userSession.UID, False)
                 End If
             End If
         Next

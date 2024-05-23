@@ -55,6 +55,7 @@ Partial Class CostumerBooking
         flp_billing = New FlowLayoutPanel()
         TabPage3 = New TabPage()
         flp_booking = New FlowLayoutPanel()
+        lbl_currRecord = New Label()
         CType(spltCont_main, ComponentModel.ISupportInitialize).BeginInit()
         spltCont_main.Panel1.SuspendLayout()
         spltCont_main.Panel2.SuspendLayout()
@@ -183,23 +184,25 @@ Partial Class CostumerBooking
         tbl_layoutAside.BackColor = Color.FromArgb(CByte(28), CByte(28), CByte(30))
         tbl_layoutAside.ColumnCount = 1
         tbl_layoutAside.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 100F))
-        tbl_layoutAside.Controls.Add(btn_logOut, 0, 6)
+        tbl_layoutAside.Controls.Add(btn_logOut, 0, 7)
         tbl_layoutAside.Controls.Add(lbl_welcome, 0, 0)
         tbl_layoutAside.Controls.Add(btn_booking, 0, 4)
         tbl_layoutAside.Controls.Add(btn_rentCars, 0, 2)
         tbl_layoutAside.Controls.Add(btn_billings, 0, 3)
         tbl_layoutAside.Controls.Add(lbl_accountName, 0, 1)
+        tbl_layoutAside.Controls.Add(lbl_currRecord, 0, 6)
         tbl_layoutAside.Dock = DockStyle.Fill
         tbl_layoutAside.GrowStyle = TableLayoutPanelGrowStyle.FixedSize
         tbl_layoutAside.Location = New Point(0, 0)
         tbl_layoutAside.Name = "tbl_layoutAside"
-        tbl_layoutAside.RowCount = 7
+        tbl_layoutAside.RowCount = 8
         tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Absolute, 30F))
-        tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Percent, 22.22222F))
+        tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Percent, 22.2217255F))
         tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Absolute, 50F))
         tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Absolute, 50F))
         tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Absolute, 50F))
-        tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Percent, 77.77778F))
+        tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Percent, 66.3185349F))
+        tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Percent, 11.4882507F))
         tbl_layoutAside.RowStyles.Add(New RowStyle(SizeType.Absolute, 50F))
         tbl_layoutAside.Size = New Size(260, 614)
         tbl_layoutAside.TabIndex = 0
@@ -516,6 +519,18 @@ Partial Class CostumerBooking
         flp_booking.Size = New Size(778, 580)
         flp_booking.TabIndex = 0
         ' 
+        ' lbl_currRecord
+        ' 
+        lbl_currRecord.Dock = DockStyle.Fill
+        lbl_currRecord.Font = New Font("Corbel", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lbl_currRecord.ForeColor = Color.Transparent
+        lbl_currRecord.Location = New Point(3, 519)
+        lbl_currRecord.Name = "lbl_currRecord"
+        lbl_currRecord.Size = New Size(254, 44)
+        lbl_currRecord.TabIndex = 3
+        lbl_currRecord.Text = "Record: < Good >"
+        lbl_currRecord.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' CostumerBooking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -583,4 +598,5 @@ Partial Class CostumerBooking
     Friend WithEvents btn_Rent As Button
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label1 As Label
+    Friend WithEvents lbl_currRecord As Label
 End Class

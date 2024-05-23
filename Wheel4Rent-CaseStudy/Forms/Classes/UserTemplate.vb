@@ -129,7 +129,7 @@
         Get
             Return _isGoodRecord
         End Get
-        Private Set(value As Boolean)
+        Set(value As Boolean)
             _isGoodRecord = value
         End Set
     End Property
