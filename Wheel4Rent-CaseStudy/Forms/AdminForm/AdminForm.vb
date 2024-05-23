@@ -165,19 +165,19 @@ Public Class AdminForm
     End Sub
     Public Sub EditCellValue(rowIndex As Integer, columnIndex As Integer, fileToEdit As String)
         Dim lines As List(Of String) = File.ReadAllLines(fileToEdit).ToList()
-        Dim line As String() = lines(rowIndex).Split(",")
+        Dim line As String() = lines(rowIndex).Split("~")
         Dim newLine As String = ""
         For i As Integer = 0 To line.Length - 1
             If i = columnIndex Then
                 Dim newCell As String = dgv_user.Rows(rowIndex).Cells(columnIndex).Value.ToString()
                 newLine += newCell
                 If i < line.Length - 1 Then
-                    newLine += ","
+                    newLine += "~"
                 End If
             Else
                 newLine += line(i)
                 If i < line.Length - 1 Then
-                    newLine += ","
+                    newLine += "~"
                 End If
             End If
         Next
