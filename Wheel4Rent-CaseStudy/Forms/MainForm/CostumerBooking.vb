@@ -55,7 +55,7 @@ Public Class CostumerBooking
         tabCtrl_body.SizeMode = TabSizeMode.Fixed
     End Sub
 
-    Private Sub LoadCars(UID As String)
+    Public Sub LoadCars(UID As String)
         flp_rentCarsMain.Controls.Clear()
 
         Dim user As UserTemplate = db.GetSpecificUser(UID)
@@ -79,10 +79,6 @@ Public Class CostumerBooking
             Next
         End If
 
-        'For Each car As VehicleDetails In cars
-        '    Dim pnl As New CardCards(car, _userSession, Me)
-        '    flp_rentCarsMain.Controls.Add(pnl)
-        'Next
     End Sub
 
     Private Sub FetchRentals()

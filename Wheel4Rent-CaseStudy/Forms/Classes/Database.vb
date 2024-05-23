@@ -239,6 +239,20 @@ Public Class Database
             AddUserToDB(u)
         Next
     End Sub
+    Public Sub UpdateCarsAvailability(CarID As String, BoolVal As Boolean)
+        Dim cars As List(Of VehicleDetails) = GetCars()
+        Dim carIndex As Integer = cars.FindIndex(Function(c) c.CarID = CarID)
+        If carIndex <> -1 Then
+            cars(carIndex).IsAvailable = BoolVal
+            File.Delete(_VEHICLE_CSV_FILE)
+            For Each c As VehicleDetails In cars
+                AddCarToDB(c)
+            Next
+        Else
+            MsgBox("Car with CarID " & CarID & " not found.")
+        End If
+    End Sub
+
 
     Public ReadOnly Property get_Directory As String
         Get

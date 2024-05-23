@@ -188,7 +188,7 @@ Partial Class LogIn
         txtb_userName.PlaceholderText = "Username"
         txtb_userName.Size = New Size(280, 29)
         txtb_userName.TabIndex = 1
-        txtb_userName.Text = "Dreiii"
+        txtb_userName.Text = "Alice Guo Baddie Pics"
         ' 
         ' lnklbl_admin
         ' 
