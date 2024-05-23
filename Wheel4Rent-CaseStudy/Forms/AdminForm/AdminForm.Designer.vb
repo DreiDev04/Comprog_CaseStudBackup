@@ -35,15 +35,15 @@ Partial Class AdminForm
         TabPage1 = New TabPage()
         TableLayoutPanel2 = New TableLayoutPanel()
         FlowLayoutPanel2 = New FlowLayoutPanel()
-        btn_add = New Button()
+        btn_UaddRow = New Button()
         btn_UdEdit = New Button()
+        btn_UdeleteByUsername = New Button()
         dgv_user = New DataGridView()
         TabPage2 = New TabPage()
         TableLayoutPanel3 = New TableLayoutPanel()
         dgv_rental = New DataGridView()
         Panel4 = New Panel()
         FlowLayoutPanel3 = New FlowLayoutPanel()
-        Button2 = New Button()
         Button3 = New Button()
         TabPage3 = New TabPage()
         TableLayoutPanel4 = New TableLayoutPanel()
@@ -233,25 +233,26 @@ Partial Class AdminForm
         ' 
         ' FlowLayoutPanel2
         ' 
-        FlowLayoutPanel2.Controls.Add(btn_add)
+        FlowLayoutPanel2.Controls.Add(btn_UaddRow)
         FlowLayoutPanel2.Controls.Add(btn_UdEdit)
+        FlowLayoutPanel2.Controls.Add(btn_UdeleteByUsername)
         FlowLayoutPanel2.FlowDirection = FlowDirection.RightToLeft
         FlowLayoutPanel2.Location = New Point(3, 3)
         FlowLayoutPanel2.Name = "FlowLayoutPanel2"
         FlowLayoutPanel2.Size = New Size(985, 43)
         FlowLayoutPanel2.TabIndex = 0
         ' 
-        ' btn_add
+        ' btn_UaddRow
         ' 
-        btn_add.Cursor = Cursors.Hand
-        btn_add.FlatStyle = FlatStyle.Flat
-        btn_add.Font = New Font("Cascadia Mono", 12F)
-        btn_add.Location = New Point(869, 3)
-        btn_add.Name = "btn_add"
-        btn_add.Size = New Size(113, 35)
-        btn_add.TabIndex = 0
-        btn_add.Text = "Add Row"
-        btn_add.UseVisualStyleBackColor = True
+        btn_UaddRow.Cursor = Cursors.Hand
+        btn_UaddRow.FlatStyle = FlatStyle.Flat
+        btn_UaddRow.Font = New Font("Cascadia Mono", 12F)
+        btn_UaddRow.Location = New Point(869, 3)
+        btn_UaddRow.Name = "btn_UaddRow"
+        btn_UaddRow.Size = New Size(113, 35)
+        btn_UaddRow.TabIndex = 0
+        btn_UaddRow.Text = "Add Row"
+        btn_UaddRow.UseVisualStyleBackColor = True
         ' 
         ' btn_UdEdit
         ' 
@@ -265,8 +266,22 @@ Partial Class AdminForm
         btn_UdEdit.Text = "Edit"
         btn_UdEdit.UseVisualStyleBackColor = True
         ' 
+        ' btn_UdeleteByUsername
+        ' 
+        btn_UdeleteByUsername.Cursor = Cursors.Hand
+        btn_UdeleteByUsername.FlatStyle = FlatStyle.Flat
+        btn_UdeleteByUsername.Font = New Font("Cascadia Mono", 12F)
+        btn_UdeleteByUsername.Location = New Point(614, 3)
+        btn_UdeleteByUsername.Name = "btn_UdeleteByUsername"
+        btn_UdeleteByUsername.Size = New Size(130, 35)
+        btn_UdeleteByUsername.TabIndex = 2
+        btn_UdeleteByUsername.Text = "Delete by ID"
+        btn_UdeleteByUsername.UseVisualStyleBackColor = True
+        ' 
         ' dgv_user
         ' 
+        dgv_user.AllowUserToAddRows = False
+        dgv_user.AllowUserToDeleteRows = False
         dgv_user.AllowUserToResizeColumns = False
         dgv_user.AllowUserToResizeRows = False
         dgv_user.BackgroundColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
@@ -334,7 +349,6 @@ Partial Class AdminForm
         ' 
         ' FlowLayoutPanel3
         ' 
-        FlowLayoutPanel3.Controls.Add(Button2)
         FlowLayoutPanel3.Controls.Add(Button3)
         FlowLayoutPanel3.FlowDirection = FlowDirection.RightToLeft
         FlowLayoutPanel3.Location = New Point(0, 5)
@@ -342,24 +356,12 @@ Partial Class AdminForm
         FlowLayoutPanel3.Size = New Size(985, 43)
         FlowLayoutPanel3.TabIndex = 1
         ' 
-        ' Button2
-        ' 
-        Button2.Cursor = Cursors.Hand
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.Font = New Font("Cascadia Mono", 12F)
-        Button2.Location = New Point(869, 3)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(113, 35)
-        Button2.TabIndex = 0
-        Button2.Text = "Add Row"
-        Button2.UseVisualStyleBackColor = True
-        ' 
         ' Button3
         ' 
         Button3.Cursor = Cursors.Hand
         Button3.FlatStyle = FlatStyle.Flat
         Button3.Font = New Font("Cascadia Mono", 12F)
-        Button3.Location = New Point(750, 3)
+        Button3.Location = New Point(869, 3)
         Button3.Name = "Button3"
         Button3.Size = New Size(113, 35)
         Button3.TabIndex = 1
@@ -496,7 +498,7 @@ Partial Class AdminForm
     Friend WithEvents pnl_main As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
-    Friend WithEvents btn_add As Button
+    Friend WithEvents btn_UaddRow As Button
     Friend WithEvents btn_UdEdit As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents TabControl1 As TabControl
@@ -511,10 +513,10 @@ Partial Class AdminForm
     Friend WithEvents dgv_vehicle As DataGridView
     Friend WithEvents Panel4 As Panel
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
-    Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Panel5 As Panel
     Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
     Friend WithEvents Button5 As Button
     Friend WithEvents Button6 As Button
+    Friend WithEvents btn_UdeleteByUsername As Button
 End Class

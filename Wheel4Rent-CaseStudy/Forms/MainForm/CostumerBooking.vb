@@ -13,9 +13,15 @@ Public Class CostumerBooking
     Public Sub New(userSession As UserSession)
         InitializeComponent()
         _userSession = userSession
+        'ResetRental()
     End Sub
 
     Private Sub CostumerBooking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Uncomment this line to reset the rental database
+        'db.ResetRental()
+        'db.ResetOverdue()
+        'db.ResetUserGoodRecord()
+
         SetupControls()
 
         ValidateOverDue()
@@ -33,13 +39,15 @@ Public Class CostumerBooking
         lbl_subHero.Parent = pb_image
     End Sub
 
-    Function GoodRecordPrint(UID As String)
+    Function GoodRecordPrint(UID As String) As String
         Dim user As UserTemplate = db.GetSpecificUser(UID)
+
         If user Is Nothing Then
-            MsgBox("User with UID " & UID & " not found.")
-            Exit Function
+            MessageBox.Show("User with UID " & UID & " not found.", "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return String.Empty
         End If
-        If user.IsGoodRecord = True Then
+
+        If user.IsGoodRecord Then
             Return "Record: Good"
         Else
             Return "Record: Bad"
