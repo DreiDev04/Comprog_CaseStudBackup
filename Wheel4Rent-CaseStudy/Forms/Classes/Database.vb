@@ -19,9 +19,25 @@ Public Class Database
         If Not Directory.Exists(_Directory) Then
             Directory.CreateDirectory(_Directory)
         End If
-
+        InitializeDB()
     End Sub
-
+    Public Sub InitializeDB()
+        If Not File.Exists(_USER_CSV_FILE) Then
+            Using writer As New StreamWriter(_USER_CSV_FILE)
+                writer.WriteLine("UID~Name~Age~Birthday~Sex~Address~Username~Password~Email~RemainingDays~IsGoodRecord~credits")
+            End Using
+        End If
+        If Not File.Exists(_VEHICLE_CSV_FILE) Then
+            Using writer As New StreamWriter(_VEHICLE_CSV_FILE)
+                writer.WriteLine("CarID~ModelName~PlateNumber~Color~Type~Capacity~BodyNumber~IsAvailable~DailyPrice~PosterPath~Description")
+            End Using
+        End If
+        If Not File.Exists(_RENTAL_CSV_FILE) Then
+            Using writer As New StreamWriter(_RENTAL_CSV_FILE)
+                writer.WriteLine("UID~Order ID~Card ID~Start Date~Return Date~IsReturuned~IsOverdue~Total Price")
+            End Using
+        End If
+    End Sub
 
     Public Sub AddBooking(rental As RentalTemplate)
         If Not File.Exists(_RENTAL_CSV_FILE) Then
@@ -223,6 +239,38 @@ Public Class Database
             MsgBox("Rental with UID " & UID & " and orderID " & orderID & " not found.")
         End If
     End Sub
+    Public Sub ResetRental()
+
+        Dim cars As List(Of VehicleDetails) = GetCars()
+        For Each car As VehicleDetails In cars
+            car.IsAvailable = True
+        Next
+        File.Delete(_VEHICLE_CSV_FILE)
+        For Each c As VehicleDetails In cars
+            AddCarToDB(c)
+        Next
+    End Sub
+    Public Sub ResetUserGoodRecord()
+        Dim users As List(Of UserTemplate) = GetUsers()
+        For Each user As UserTemplate In users
+            user.IsGoodRecord = True
+        Next
+        File.Delete(_USER_CSV_FILE)
+        For Each u As UserTemplate In users
+            AddUserToDB(u)
+        Next
+    End Sub
+    Public Sub ResetOverdue()
+        Dim rentals As List(Of RentalTemplate) = GetBokkingToDB()
+        For Each rent As RentalTemplate In rentals
+            rent.IsOverdue = False
+        Next
+        File.Delete(_RENTAL_CSV_FILE)
+        For Each r As RentalTemplate In rentals
+            AddBooking(r)
+        Next
+    End Sub
+
     Public Sub ValidateGoodRecord(UID As String, BoolVal As Boolean)
 
         Dim user As UserTemplate = GetSpecificUser(UID)
@@ -253,6 +301,20 @@ Public Class Database
         End If
     End Sub
 
+    Public Sub DeleteUser(UID As String)
+        Dim users As List(Of UserTemplate) = GetUsers()
+        Dim userIndex As Integer = users.FindIndex(Function(u) u.UID = UID)
+        If userIndex <> -1 Then
+            users.RemoveAt(userIndex)
+            File.Delete(_USER_CSV_FILE)
+            For Each u As UserTemplate In users
+                AddUserToDB(u)
+            Next
+            MsgBox("User with UID " & UID & " deleted.")
+        Else
+            MsgBox("User with UID " & UID & " not found.")
+        End If
+    End Sub
 
     Public ReadOnly Property get_Directory As String
         Get

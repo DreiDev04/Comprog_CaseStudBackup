@@ -2,6 +2,7 @@
 
 Public Class AdminForm
     Dim db As New Database()
+    Dim auth As New AuthManager()
     Private Sub AdminForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitializeUserDB()
         InitializeVehicleDB()
@@ -143,21 +144,23 @@ Public Class AdminForm
 
     Private Sub btn_UdEdit_Click(sender As Object, e As EventArgs) Handles btn_UdEdit.Click
         If dgv_user.SelectedCells.Count > 0 Then
-            ' Get the row and column index of the selected cell
             Dim rowIndex As Integer = dgv_user.SelectedCells(0).RowIndex
             Dim columnIndex As Integer = dgv_user.SelectedCells(0).ColumnIndex
 
-            ' Prompt the user for input
             Dim newValue As String = InputBox("Enter the new value:", "Edit Cell", dgv_user.Rows(rowIndex).Cells(columnIndex).Value.ToString())
 
-            ' Check if the user entered a value
             If Not String.IsNullOrEmpty(newValue) Then
-                ' Update the DataGridView cell
                 dgv_user.Rows(rowIndex).Cells(columnIndex).Value = newValue
 
-                ' Update the corresponding cell in the CSV file
-                Dim fileToEdit As String = db.get_UserCsvFile
-                EditCellValue(rowIndex, columnIndex, fileToEdit)
+                Dim fileToEdit As String = db.get_UserCsvFile()
+
+                If Not String.IsNullOrEmpty(fileToEdit) AndAlso File.Exists(fileToEdit) Then
+                    ' Update the cell value in the CSV file
+                    EditCellValue(rowIndex, columnIndex, fileToEdit)
+                    MessageBox.Show("Cell value updated and saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("CSV file not found.", "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             End If
         Else
             MessageBox.Show("Please select a cell to edit.", "No Cell Selected", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -165,23 +168,64 @@ Public Class AdminForm
     End Sub
     Public Sub EditCellValue(rowIndex As Integer, columnIndex As Integer, fileToEdit As String)
         Dim lines As List(Of String) = File.ReadAllLines(fileToEdit).ToList()
-        Dim line As String() = lines(rowIndex).Split(",")
-        Dim newLine As String = ""
-        For i As Integer = 0 To line.Length - 1
-            If i = columnIndex Then
-                Dim newCell As String = dgv_user.Rows(rowIndex).Cells(columnIndex).Value.ToString()
-                newLine += newCell
-                If i < line.Length - 1 Then
-                    newLine += ","
+
+        Dim dataRowIndex As Integer = rowIndex + 1
+        If dataRowIndex < lines.Count Then
+            Dim line As String() = lines(dataRowIndex).Split("~")
+            Dim newLine As String = ""
+
+            For i As Integer = 0 To line.Length - 1
+                If i = columnIndex Then
+                    Dim newCell As String = dgv_user.Rows(rowIndex).Cells(columnIndex).Value.ToString()
+                    newLine += newCell
+                Else
+                    newLine += line(i)
                 End If
-            Else
-                newLine += line(i)
+
                 If i < line.Length - 1 Then
-                    newLine += ","
+                    newLine += "~"
                 End If
-            End If
-        Next
-        lines(rowIndex) = newLine
-        File.WriteAllLines(fileToEdit, lines)
+            Next
+
+            lines(dataRowIndex) = newLine
+            File.WriteAllLines(fileToEdit, lines)
+        Else
+            MessageBox.Show("Invalid row index.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
     End Sub
+
+    Private Sub btn_UaddRow_Click(sender As Object, e As EventArgs) Handles btn_UaddRow.Click
+
+        Dim name As String = InputBox("Enter the name:", "Name")
+        Dim age As Integer
+        Dim birthday As Date
+        Dim sex As String = InputBox("Enter the sex:", "Sex")
+        Dim address As String = InputBox("Enter the address:", "Address")
+        Dim username As String = InputBox("Enter the username:", "Username")
+        Dim password As String = InputBox("Enter the password:", "Password")
+        Dim email As String = InputBox("Enter the email:", "Email")
+
+        Dim ageInput As String = InputBox("Enter the age:", "Age")
+        If Not Integer.TryParse(ageInput, age) Then
+            MessageBox.Show("Invalid age. Please enter a valid integer.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        Dim birthdayInput As String = InputBox("Enter the birthday:", "Birthday")
+        If Not Date.TryParse(birthdayInput, birthday) Then
+            MessageBox.Show("Invalid birthday. Please enter a valid date.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        auth.SignUp(name, age, birthday, sex, address, username, password, email)
+        InitializeUserDB()
+    End Sub
+
+    Private Sub btn_UdeleteByUsername_Click(sender As Object, e As EventArgs) Handles btn_UdeleteByUsername.Click
+        Dim UID As String = InputBox("Enter the UID:", "UID")
+        db.DeleteUser(UID)
+        InitializeUserDB()
+    End Sub
+
+
 End Class

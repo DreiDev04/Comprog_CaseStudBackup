@@ -1,4 +1,5 @@
 ﻿Public Class SplashScreenV2
+    Dim db As New Database()
     Private Sub btn_Login_Click(sender As Object, e As EventArgs) Handles btn_Login.Click
         LogIn.Show()
         Me.Hide()
@@ -29,4 +30,5 @@
         Me.Close()
         Application.Exit()
     End Sub
+
 End Class
