@@ -22,6 +22,7 @@ Partial Class CostumerBooking
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CostumerBooking))
         spltCont_main = New SplitContainer()
         flowCont_details = New FlowLayoutPanel()
         btn_addCredit = New Button()
@@ -36,6 +37,7 @@ Partial Class CostumerBooking
         btn_rentCars = New Button()
         btn_billings = New Button()
         lbl_accountName = New Label()
+        lbl_currRecord = New Label()
         Panel1 = New Panel()
         tabCtrl_body = New TabControl()
         TabPage4 = New TabPage()
@@ -55,7 +57,6 @@ Partial Class CostumerBooking
         flp_billing = New FlowLayoutPanel()
         TabPage3 = New TabPage()
         flp_booking = New FlowLayoutPanel()
-        lbl_currRecord = New Label()
         CType(spltCont_main, ComponentModel.ISupportInitialize).BeginInit()
         spltCont_main.Panel1.SuspendLayout()
         spltCont_main.Panel2.SuspendLayout()
@@ -292,6 +293,18 @@ Partial Class CostumerBooking
         lbl_accountName.Text = "<Account Name>"
         lbl_accountName.TextAlign = ContentAlignment.MiddleCenter
         ' 
+        ' lbl_currRecord
+        ' 
+        lbl_currRecord.Dock = DockStyle.Fill
+        lbl_currRecord.Font = New Font("Corbel", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lbl_currRecord.ForeColor = Color.Transparent
+        lbl_currRecord.Location = New Point(3, 519)
+        lbl_currRecord.Name = "lbl_currRecord"
+        lbl_currRecord.Size = New Size(254, 44)
+        lbl_currRecord.TabIndex = 3
+        lbl_currRecord.Text = "Record: < Good >"
+        lbl_currRecord.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' Panel1
         ' 
         Panel1.BackColor = Color.White
@@ -519,24 +532,13 @@ Partial Class CostumerBooking
         flp_booking.Size = New Size(778, 580)
         flp_booking.TabIndex = 0
         ' 
-        ' lbl_currRecord
-        ' 
-        lbl_currRecord.Dock = DockStyle.Fill
-        lbl_currRecord.Font = New Font("Corbel", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lbl_currRecord.ForeColor = Color.Transparent
-        lbl_currRecord.Location = New Point(3, 519)
-        lbl_currRecord.Name = "lbl_currRecord"
-        lbl_currRecord.Size = New Size(254, 44)
-        lbl_currRecord.TabIndex = 3
-        lbl_currRecord.Text = "Record: < Good >"
-        lbl_currRecord.TextAlign = ContentAlignment.MiddleCenter
-        ' 
         ' CostumerBooking
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1064, 681)
         Controls.Add(spltCont_main)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "CostumerBooking"
         StartPosition = FormStartPosition.CenterScreen
         Text = "CostumerBooking"
