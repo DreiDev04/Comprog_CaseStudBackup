@@ -315,6 +315,21 @@ Public Class Database
             MsgBox("User with UID " & UID & " not found.")
         End If
     End Sub
+    Public Sub DeleteCar(UID As String)
+
+        Dim cars As List(Of VehicleDetails) = GetCars()
+        Dim carIndex As Integer = cars.FindIndex(Function(c) c.CarID = UID)
+        If carIndex <> -1 Then
+            cars.RemoveAt(carIndex)
+            File.Delete(_VEHICLE_CSV_FILE)
+            For Each c As VehicleDetails In cars
+                AddCarToDB(c)
+            Next
+            MsgBox("Car with CarID " & UID & " deleted.")
+        Else
+            MsgBox("Car with CarID " & UID & " not found.")
+        End If
+    End Sub
 
     Public ReadOnly Property get_Directory As String
         Get

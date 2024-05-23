@@ -44,14 +44,15 @@ Partial Class AdminForm
         dgv_rental = New DataGridView()
         Panel4 = New Panel()
         FlowLayoutPanel3 = New FlowLayoutPanel()
-        Button3 = New Button()
+        btn_Redit = New Button()
         TabPage3 = New TabPage()
         TableLayoutPanel4 = New TableLayoutPanel()
         dgv_vehicle = New DataGridView()
         Panel5 = New Panel()
         FlowLayoutPanel4 = New FlowLayoutPanel()
-        Button5 = New Button()
-        Button6 = New Button()
+        btn_VaddRow = New Button()
+        btn_Vedit = New Button()
+        btn_Vdel = New Button()
         CType(spltCont, ComponentModel.ISupportInitialize).BeginInit()
         spltCont.Panel1.SuspendLayout()
         spltCont.Panel2.SuspendLayout()
@@ -349,24 +350,24 @@ Partial Class AdminForm
         ' 
         ' FlowLayoutPanel3
         ' 
-        FlowLayoutPanel3.Controls.Add(Button3)
+        FlowLayoutPanel3.Controls.Add(btn_Redit)
         FlowLayoutPanel3.FlowDirection = FlowDirection.RightToLeft
         FlowLayoutPanel3.Location = New Point(0, 5)
         FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         FlowLayoutPanel3.Size = New Size(985, 43)
         FlowLayoutPanel3.TabIndex = 1
         ' 
-        ' Button3
+        ' btn_Redit
         ' 
-        Button3.Cursor = Cursors.Hand
-        Button3.FlatStyle = FlatStyle.Flat
-        Button3.Font = New Font("Cascadia Mono", 12F)
-        Button3.Location = New Point(869, 3)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(113, 35)
-        Button3.TabIndex = 1
-        Button3.Text = "Edit"
-        Button3.UseVisualStyleBackColor = True
+        btn_Redit.Cursor = Cursors.Hand
+        btn_Redit.FlatStyle = FlatStyle.Flat
+        btn_Redit.Font = New Font("Cascadia Mono", 12F)
+        btn_Redit.Location = New Point(869, 3)
+        btn_Redit.Name = "btn_Redit"
+        btn_Redit.Size = New Size(113, 35)
+        btn_Redit.TabIndex = 1
+        btn_Redit.Text = "Edit"
+        btn_Redit.UseVisualStyleBackColor = True
         ' 
         ' TabPage3
         ' 
@@ -422,37 +423,50 @@ Partial Class AdminForm
         ' 
         ' FlowLayoutPanel4
         ' 
-        FlowLayoutPanel4.Controls.Add(Button5)
-        FlowLayoutPanel4.Controls.Add(Button6)
+        FlowLayoutPanel4.Controls.Add(btn_VaddRow)
+        FlowLayoutPanel4.Controls.Add(btn_Vedit)
+        FlowLayoutPanel4.Controls.Add(btn_Vdel)
         FlowLayoutPanel4.FlowDirection = FlowDirection.RightToLeft
         FlowLayoutPanel4.Location = New Point(0, 5)
         FlowLayoutPanel4.Name = "FlowLayoutPanel4"
         FlowLayoutPanel4.Size = New Size(985, 43)
         FlowLayoutPanel4.TabIndex = 1
         ' 
-        ' Button5
+        ' btn_VaddRow
         ' 
-        Button5.Cursor = Cursors.Hand
-        Button5.FlatStyle = FlatStyle.Flat
-        Button5.Font = New Font("Cascadia Mono", 12F)
-        Button5.Location = New Point(869, 3)
-        Button5.Name = "Button5"
-        Button5.Size = New Size(113, 35)
-        Button5.TabIndex = 0
-        Button5.Text = "Add Row"
-        Button5.UseVisualStyleBackColor = True
+        btn_VaddRow.Cursor = Cursors.Hand
+        btn_VaddRow.FlatStyle = FlatStyle.Flat
+        btn_VaddRow.Font = New Font("Cascadia Mono", 12F)
+        btn_VaddRow.Location = New Point(869, 3)
+        btn_VaddRow.Name = "btn_VaddRow"
+        btn_VaddRow.Size = New Size(113, 35)
+        btn_VaddRow.TabIndex = 0
+        btn_VaddRow.Text = "Add Row"
+        btn_VaddRow.UseVisualStyleBackColor = True
         ' 
-        ' Button6
+        ' btn_Vedit
         ' 
-        Button6.Cursor = Cursors.Hand
-        Button6.FlatStyle = FlatStyle.Flat
-        Button6.Font = New Font("Cascadia Mono", 12F)
-        Button6.Location = New Point(750, 3)
-        Button6.Name = "Button6"
-        Button6.Size = New Size(113, 35)
-        Button6.TabIndex = 1
-        Button6.Text = "Edit"
-        Button6.UseVisualStyleBackColor = True
+        btn_Vedit.Cursor = Cursors.Hand
+        btn_Vedit.FlatStyle = FlatStyle.Flat
+        btn_Vedit.Font = New Font("Cascadia Mono", 12F)
+        btn_Vedit.Location = New Point(750, 3)
+        btn_Vedit.Name = "btn_Vedit"
+        btn_Vedit.Size = New Size(113, 35)
+        btn_Vedit.TabIndex = 1
+        btn_Vedit.Text = "Edit"
+        btn_Vedit.UseVisualStyleBackColor = True
+        ' 
+        ' btn_Vdel
+        ' 
+        btn_Vdel.Cursor = Cursors.Hand
+        btn_Vdel.FlatStyle = FlatStyle.Flat
+        btn_Vdel.Font = New Font("Cascadia Mono", 12F)
+        btn_Vdel.Location = New Point(594, 3)
+        btn_Vdel.Name = "btn_Vdel"
+        btn_Vdel.Size = New Size(150, 35)
+        btn_Vdel.TabIndex = 2
+        btn_Vdel.Text = "Delete by ID"
+        btn_Vdel.UseVisualStyleBackColor = True
         ' 
         ' AdminForm
         ' 
@@ -513,10 +527,11 @@ Partial Class AdminForm
     Friend WithEvents dgv_vehicle As DataGridView
     Friend WithEvents Panel4 As Panel
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btn_Redit As Button
     Friend WithEvents Panel5 As Panel
     Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
+    Friend WithEvents btn_VaddRow As Button
+    Friend WithEvents btn_Vedit As Button
     Friend WithEvents btn_UdeleteByUsername As Button
+    Friend WithEvents btn_Vdel As Button
 End Class
