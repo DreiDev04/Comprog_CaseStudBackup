@@ -2,8 +2,9 @@
     Dim auth As New AuthManager
 
     Private Sub SignUp_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dtp_Birthday.Value = Date.Today.AddYears(-18)
+        dtp_Birthday.MinDate = Date.Today.AddYears(-100)
         dtp_Birthday.MaxDate = Date.Today.AddYears(-18)
+        dtp_Birthday.Value = dtp_Birthday.MaxDate
     End Sub
 
     Private Sub btn_Confirm_Click(sender As Object, e As EventArgs) Handles btn_Confirm.Click
@@ -24,12 +25,12 @@
         End If
 
         Try
-            Dim birthday As Date = Date.Parse(dtp_Birthday.Value)
+            Dim birthday As Date = dtp_Birthday.Value ' Ensure this is correctly assigned
             auth.SignUp(txtb_Name.Text, age, birthday, sex, txtb_Address.Text, txtb_Username.Text, txtb_Password.Text, txtb_Email.Text)
             MessageBox.Show("Signup successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ClearFields()
-
+            'ClearFields()
+            'Me.Close()
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -37,14 +38,14 @@
 
     Private Function ValidateFields() As Boolean
         If txtb_Name.Text = "" OrElse
-           txtb_Age.Text = "" OrElse
-           dtp_Birthday.Value = Nothing OrElse
-           txtb_Address.Text = "" OrElse
-           txtb_Username.Text = "" OrElse
-           txtb_Password.Text = "" OrElse
-           txtb_Email.Text = "" OrElse
-           txtb_ConfPassword.Text = "" OrElse
-           txtb_Password.Text <> txtb_ConfPassword.Text Then
+       txtb_Age.Text = "" OrElse
+       dtp_Birthday.Value = Nothing OrElse
+       txtb_Address.Text = "" OrElse
+       txtb_Username.Text = "" OrElse
+       txtb_Password.Text = "" OrElse
+       txtb_Email.Text = "" OrElse
+       txtb_ConfPassword.Text = "" OrElse
+       txtb_Password.Text <> txtb_ConfPassword.Text Then
             MessageBox.Show("Please fill in all the fields and ensure passwords match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False
         End If
@@ -56,6 +57,11 @@
 
         If CalculateAge(dtp_Birthday.Value) < 18 Then
             MessageBox.Show("You must be at least 18 years old to sign up", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End If
+
+        If dtp_Birthday.Value > dtp_Birthday.MaxDate Or dtp_Birthday.Value < dtp_Birthday.MinDate Then
+            MessageBox.Show("Birthday must be within the allowed range", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False
         End If
 
@@ -86,9 +92,9 @@
     End Sub
 
     Private Sub dtp_Birthday_ValueChanged(sender As Object, e As EventArgs) Handles dtp_Birthday.ValueChanged
-        If dtp_Birthday.Value > Date.Today Then
+        If dtp_Birthday.Value > dtp_Birthday.MaxDate Or dtp_Birthday.Value < dtp_Birthday.MinDate Then
             MessageBox.Show("Invalid birthday", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            dtp_Birthday.Value = Date.Today
+            dtp_Birthday.Value = dtp_Birthday.MaxDate ' Reset to the max allowable date
         End If
         txtb_Age.Text = CalculateAge(dtp_Birthday.Value).ToString()
     End Sub
