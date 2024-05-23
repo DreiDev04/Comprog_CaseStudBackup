@@ -223,6 +223,36 @@ Public Class Database
             MsgBox("Rental with UID " & UID & " and orderID " & orderID & " not found.")
         End If
     End Sub
+    Public Sub ValidateGoodRecord(UID As String, BoolVal As Boolean)
+
+        Dim user As UserTemplate = GetSpecificUser(UID)
+        If user Is Nothing Then
+            MsgBox("User with UID " & UID & " not found.")
+            Exit Sub
+        End If
+        user.IsGoodRecord = BoolVal
+        Dim users As List(Of UserTemplate) = GetUsers()
+        Dim userIndex As Integer = users.FindIndex(Function(u) u.UID = UID)
+        users(userIndex) = user
+        File.Delete(_USER_CSV_FILE)
+        For Each u As UserTemplate In users
+            AddUserToDB(u)
+        Next
+    End Sub
+    Public Sub UpdateCarsAvailability(CarID As String, BoolVal As Boolean)
+        Dim cars As List(Of VehicleDetails) = GetCars()
+        Dim carIndex As Integer = cars.FindIndex(Function(c) c.CarID = CarID)
+        If carIndex <> -1 Then
+            cars(carIndex).IsAvailable = BoolVal
+            File.Delete(_VEHICLE_CSV_FILE)
+            For Each c As VehicleDetails In cars
+                AddCarToDB(c)
+            Next
+        Else
+            MsgBox("Car with CarID " & CarID & " not found.")
+        End If
+    End Sub
+
 
     Public ReadOnly Property get_Directory As String
         Get

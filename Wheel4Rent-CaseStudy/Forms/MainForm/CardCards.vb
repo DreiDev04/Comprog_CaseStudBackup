@@ -19,6 +19,7 @@ Public Class CardCards
         Else
             lbl_available.Text = "Not Available"
             lbl_available.ForeColor = ColorTranslator.FromHtml("#7D0000")
+            btnRentNow.Enabled = False
         End If
         If car.DailyPrice >= 10000 Then
             lbl_Premium.Visible = True
@@ -44,12 +45,6 @@ Public Class CardCards
     End Sub
 
     Private Sub btnRentNow_Click(sender As Object, e As EventArgs) Handles btnRentNow.Click
-        'If db.GetUserCredit(_session.UID) > _car.DailyPrice Then
-        '    Dim rentnow As New RentNowDetails(_car, _session, _costumerBooking)
-        '    rentnow.ShowDialog()
-        'Else
-        '    MessageBox.Show("Insufficient Credits", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        'End If
         Dim rentnow As New RentNowDetails(_car, _session, _costumerBooking)
         rentnow.ShowDialog()
 

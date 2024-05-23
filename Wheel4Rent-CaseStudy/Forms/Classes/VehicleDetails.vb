@@ -1,6 +1,5 @@
 ﻿Public Class VehicleDetails
     Private _modelName As String
-    Private _carBrand As String
     Private _carID As String
     Private _plateNumber As String
     Private _color As String
@@ -110,7 +109,7 @@
         Get
             Return _isAvailable
         End Get
-        Private Set(value As Boolean)
+        Set(value As Boolean)
             _isAvailable = value
         End Set
     End Property

@@ -44,7 +44,6 @@ Partial Class RentNowDetails
         TableLayoutPanel5 = New TableLayoutPanel()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         btn_cancel = New Button()
-        btn_rentNow = New Button()
         btn_addToCart = New Button()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
@@ -314,7 +313,6 @@ Partial Class RentNowDetails
         ' FlowLayoutPanel1
         ' 
         FlowLayoutPanel1.Controls.Add(btn_cancel)
-        FlowLayoutPanel1.Controls.Add(btn_rentNow)
         FlowLayoutPanel1.Controls.Add(btn_addToCart)
         FlowLayoutPanel1.Dock = DockStyle.Fill
         FlowLayoutPanel1.Location = New Point(58, 3)
@@ -335,27 +333,13 @@ Partial Class RentNowDetails
         btn_cancel.Text = "Cancel"
         btn_cancel.UseVisualStyleBackColor = False
         ' 
-        ' btn_rentNow
-        ' 
-        btn_rentNow.BackColor = Color.FromArgb(CByte(125), CByte(0), CByte(0))
-        btn_rentNow.FlatStyle = FlatStyle.Flat
-        btn_rentNow.Font = New Font("Cascadia Mono", 9.75F)
-        btn_rentNow.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
-        btn_rentNow.Location = New Point(146, 3)
-        btn_rentNow.Name = "btn_rentNow"
-        btn_rentNow.Size = New Size(137, 37)
-        btn_rentNow.TabIndex = 1
-        btn_rentNow.Text = "Rent Now"
-        btn_rentNow.UseVisualStyleBackColor = False
-        btn_rentNow.Visible = False
-        ' 
         ' btn_addToCart
         ' 
         btn_addToCart.BackColor = Color.FromArgb(CByte(125), CByte(0), CByte(0))
         btn_addToCart.FlatStyle = FlatStyle.Flat
         btn_addToCart.Font = New Font("Cascadia Mono", 9.75F)
         btn_addToCart.ForeColor = Color.FromArgb(CByte(242), CByte(242), CByte(247))
-        btn_addToCart.Location = New Point(289, 3)
+        btn_addToCart.Location = New Point(146, 3)
         btn_addToCart.Name = "btn_addToCart"
         btn_addToCart.Size = New Size(137, 37)
         btn_addToCart.TabIndex = 2
@@ -405,7 +389,6 @@ Partial Class RentNowDetails
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents btn_cancel As Button
-    Friend WithEvents btn_rentNow As Button
     Friend WithEvents btn_addToCart As Button
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
     Friend WithEvents Panel1 As Panel

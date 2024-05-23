@@ -43,9 +43,6 @@ Public Class RentNowDetails
         Me.Dispose()
     End Sub
 
-    Private Sub btn_rentNow_Click(sender As Object, e As EventArgs) Handles btn_rentNow.Click
-
-    End Sub
 
     Private Sub btn_addToCart_Click(sender As Object, e As EventArgs) Handles btn_addToCart.Click
         Dim startDate As DateTime = dtp_start.Value

@@ -68,6 +68,7 @@ Public Class Add_to_Cars
         If result = DialogResult.Yes Then
             If db.GetUserCredit(_session.UID) < totalPrice Then
                 MessageBox.Show("Insufficient funds. Please add credits to your account.", "Insufficient Funds", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
                 Return
             End If
             rm.ProcessPayment(_session, totalPrice, _costumerBookingForm)
@@ -76,8 +77,8 @@ Public Class Add_to_Cars
 
             MessageBox.Show("Payment accepted", "Accepted", MessageBoxButtons.OK, MessageBoxIcon.Information)
             _costumerBookingForm.flp_billing.Controls.Remove(Me)
-
-
+            db.UpdateCarsAvailability(_car.CarID, False)
+            _costumerBookingForm.LoadCars(_session.UID)
         Else
             ' Payment canceled
             MessageBox.Show("Payment canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
