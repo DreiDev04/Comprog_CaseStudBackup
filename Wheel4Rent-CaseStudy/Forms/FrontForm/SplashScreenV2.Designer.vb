@@ -470,6 +470,7 @@ Partial Class SplashScreenV2
         Controls.Add(Panel5)
         Controls.Add(Panel8)
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "SplashScreenV2"
         StartPosition = FormStartPosition.CenterScreen
         Panel4.ResumeLayout(False)

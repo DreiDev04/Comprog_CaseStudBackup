@@ -23,6 +23,7 @@ Partial Class LoginAdmin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim Label2 As Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginAdmin))
         TableLayoutPanel1 = New TableLayoutPanel()
         Panel1 = New Panel()
         TableLayoutPanel2 = New TableLayoutPanel()
@@ -169,7 +170,6 @@ Partial Class LoginAdmin
         txtb_password.PlaceholderText = "Password"
         txtb_password.Size = New Size(280, 29)
         txtb_password.TabIndex = 2
-        txtb_password.Text = "admin"
         ' 
         ' Label1
         ' 
@@ -207,7 +207,6 @@ Partial Class LoginAdmin
         txtb_userName.PlaceholderText = "Username"
         txtb_userName.Size = New Size(280, 29)
         txtb_userName.TabIndex = 1
-        txtb_userName.Text = "admin"
         ' 
         ' lnklbl_admin
         ' 
@@ -229,6 +228,7 @@ Partial Class LoginAdmin
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(464, 681)
         Controls.Add(TableLayoutPanel1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximumSize = New Size(480, 720)
         MinimumSize = New Size(480, 720)
         Name = "LoginAdmin"
