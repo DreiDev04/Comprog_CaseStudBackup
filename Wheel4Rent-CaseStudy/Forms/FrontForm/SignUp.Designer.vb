@@ -22,6 +22,7 @@ Partial Class SignUp
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SignUp))
         tlp_SignUpBorder = New TableLayoutPanel()
         Panel4 = New Panel()
         Panel1 = New Panel()
@@ -544,6 +545,7 @@ Partial Class SignUp
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(704, 441)
         Controls.Add(tlp_SignUpBorder)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximumSize = New Size(1080, 720)
         MinimumSize = New Size(720, 480)
         Name = "SignUp"

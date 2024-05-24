@@ -354,6 +354,7 @@ Partial Class RentNowDetails
         ClientSize = New Size(704, 434)
         ControlBox = False
         Controls.Add(TableLayoutPanel1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximumSize = New Size(720, 450)
         MinimumSize = New Size(720, 450)
         Name = "RentNowDetails"

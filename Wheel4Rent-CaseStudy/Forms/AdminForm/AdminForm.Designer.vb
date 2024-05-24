@@ -22,6 +22,7 @@ Partial Class AdminForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AdminForm))
         spltCont = New SplitContainer()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         Button1 = New Button()
@@ -474,6 +475,7 @@ Partial Class AdminForm
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1264, 681)
         Controls.Add(spltCont)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "AdminForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "AdminForm"
